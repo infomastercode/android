@@ -1,4 +1,4 @@
-package com.example.test_4;
+package com.example.test_3;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,20 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class CustomGridViewAdapter extends BaseAdapter {
     private Context context;
-    private String[] text;
-    private int[] image;
+    private List<MainActivity.MenuItem> menuItem;
 
-    CustomGridViewAdapter(Context context, String[] text, int[] image){
+    public CustomGridViewAdapter(Context context, List<MainActivity.MenuItem> menuItem) {
         this.context = context;
-        this.text = text;
-        this.image = image;
+        this.menuItem = menuItem;
     }
 
     @Override
     public int getCount() {
-        return text.length;
+        return this.menuItem.size();
     }
 
     @Override
@@ -37,17 +37,17 @@ public class CustomGridViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if(convertView == null){
-            view = inflater.inflate(R.layout.gridview_layout, null, false);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(R.layout.gridview_item, null, false);
             TextView vText = view.findViewById(R.id.text);
             ImageView vImage = view.findViewById(R.id.image);
-            vText.setText(text[position]);
-            vImage.setImageResource(image[position]);
+
+            vText.setText(menuItem.get(position).getLabel());
+            vImage.setImageResource(menuItem.get(position).getImageId());
         }else{
             view = convertView;
         }
-
         return view;
     }
 }

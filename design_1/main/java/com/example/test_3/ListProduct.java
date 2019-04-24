@@ -1,4 +1,4 @@
-package com.example.test_4;
+package com.example.test_3;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +11,8 @@ public class ListProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_product_layout);
 
-        ListView listView = findViewById(R.id.listView);
+        ListView listProduct = findViewById(R.id.listProduct);
         ListProductAdapter adapter = new ListProductAdapter(ListProduct.this);
-        listView.setAdapter(adapter);
+        listProduct.setAdapter(adapter);
     }
 }

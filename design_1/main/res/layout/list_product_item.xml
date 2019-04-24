@@ -9,7 +9,7 @@
         android:id="@+id/imageProduct"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:src="@drawable/box" />
+        android:src="@drawable/box_64" />
 
     <TextView
         android:id="@+id/textName"

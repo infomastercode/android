@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         menuItem.add(new MenuItem("list", "show list", R.drawable.menu_list_64));
         menuItem.add(new MenuItem("hello", "show hello", R.drawable.menu_list_64));
+        menuItem.add(new MenuItem("master_detail", "master detail", R.drawable.menu_list_64));
 
         GridView gridView = findViewById(R.id.gridView);
         CustomGridViewAdapter adapter = new CustomGridViewAdapter(this, menuItem);
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (menuItem.get(position).getCode() == "list") {
                     Intent i = new Intent(MainActivity.this, ListProduct.class);
+                    startActivity(i);
+                } else if (menuItem.get(position).getCode() == "master_detail") {
+                    Intent i = new Intent(MainActivity.this, MasterDetail.class);
                     startActivity(i);
                 }
 //                Intent i = new Intent(MainActivity.this, ListProduct.class);
